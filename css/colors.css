@@ -1,0 +1,12 @@
+:root {
+    --bg-color: #052e16; 
+    --main-color: #22c55e; 
+    --text-color: #1e293b;
+    --second-text-color: #334155;
+    --white-color: #ffffff;
+    --cover-color: linear-gradient(45deg, #14532d, #22c55e); 
+    --pages-color: linear-gradient(90deg, #ffffff, #f0fdf4);
+    --border: 0.125rem solid #22c55e;
+    --box-shadow: 0 0 0.6rem rgba(34, 197, 94, 0.35);
+}
+

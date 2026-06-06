@@ -1,0 +1,24 @@
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 100%;
+        padding: 1rem;
+    }
+    .book-page {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
