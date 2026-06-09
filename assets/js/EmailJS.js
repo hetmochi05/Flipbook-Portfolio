@@ -1,0 +1,1 @@
+// For Security reasons, the EmailJS code is not included in this repository. Please refer to the official EmailJS documentation for implementation details: https://www.emailjs.com/docs/
