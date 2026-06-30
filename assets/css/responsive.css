@@ -1,0 +1,300 @@
+/* ============================================================
+   RESPONSIVE.CSS — Flipbook Portfolio by Het Mochi
+   Strategy:
+   • Desktop (>768px) → original 3D flipbook, completely untouched
+   • Mobile/Tablet (≤768px) → flipbook disabled entirely.
+     All sections become plain stacked blocks you scroll through,
+     like a normal single-page portfolio site.
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    body {
+        display: block;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding: 0;
+    }
+
+    /* ── Kill all 3D / book mechanics ── */
+    .wrapper {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        perspective: none;
+        animation: none;
+        opacity: 1;
+        transform: none;
+        position: static;
+    }
+
+    .cover {
+        display: none !important;
+    }
+
+    .book {
+        display: block;
+        width: 100%;
+        height: auto;
+        perspective: none;
+    }
+
+    /* ── Every page becomes a normal full-width block, stacked vertically ──
+       NOTE: .turn class in the original CSS triggers rotateY(-180deg) on
+       .book-page.page-right — that rule has equal/higher specificity than
+       a plain class selector, so we must explicitly neutralize the
+       ".book-page.page-right.turn" combo too, not just ".book-page". */
+    .book .book-page,
+    .book .book-page.page-right,
+    .book .book-page.page-right.turn {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        right: auto !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        transform-style: flat !important;
+        transition: none !important;
+        backface-visibility: visible !important;
+        z-index: auto !important;
+        padding: 1.5rem 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .book-page.page-left {
+        border-bottom: 1px solid rgba(34,197,94,0.25);
+    }
+
+    /* ── page-front / page-back: also flattened, stacked one after another ──
+       Original CSS gives these `position:absolute; top:0; left:0` so both
+       sit exactly on top of each other. We force them into normal document
+       flow (relative + block) so they stack vertically instead. */
+    .book-page .page-front,
+    .book-page .page-back {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: unset !important;
+        max-height: none !important;
+        padding: 1.5rem 1.2rem !important;
+        box-sizing: border-box;
+        background: var(--pages-color);
+        transform: none !important;
+        backface-visibility: visible !important;
+        border-bottom: 1px solid rgba(34,197,94,0.25);
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+        float: none !important;
+        clear: both;
+    }
+
+    /* last page-back has no border (it's the last section) */
+    #turn-3 .page-back {
+        border-bottom: none;
+    }
+
+    /* Failsafe: ensure page-back never renders flipped/hidden regardless
+       of any inline styles JS might add on desktop init */
+    .book-page .page-back {
+        transform: rotateY(0deg) !important;
+    }
+
+    /* ── Section labels — a small heading above each block so users
+       always know which "page" they're scrolled to ── */
+    .mobile-section-label {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--main-color);
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        opacity: 0.8;
+    }
+
+    /* ── PROFILE PAGE ── */
+    .profile-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .profile-header img {
+        width: 88px !important;
+        height: 88px !important;
+    }
+
+    .profile-title { text-align: center; }
+    .profile-page h1 { font-size: 1.65rem !important; }
+    .profile-page h4 { font-size: 0.8rem; }
+
+    .profile-page p {
+        font-size: 0.8rem;
+        text-align: left;
+        line-height: 1.55;
+    }
+
+    .profile-page .social-media {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem;
+    }
+
+    .profile-page .social-media a {
+        width: 2.2rem !important;
+        height: 2.2rem !important;
+        font-size: 1.05rem !important;
+    }
+
+    .profile-page .btn-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 0.6rem;
+    }
+
+    .btn {
+        width: 8.2rem !important;
+        height: 2.6rem !important;
+        font-size: 0.85rem !important;
+        margin: 0 !important;
+    }
+
+    .footer-content {
+        font-size: 0.68rem;
+        margin-top: 0.7rem;
+        text-align: center;
+    }
+
+    /* ── TITLES ── */
+    .title {
+        font-size: 1.35rem;
+        margin-bottom: 0.7rem;
+        text-align: center;
+    }
+
+    /* ── EDUCATION ── */
+    .education-box {
+        height: auto;
+        padding: 0.7rem 0.9rem;
+        border-right: none;
+        border-left: 3px solid var(--main-color);
+    }
+
+    .education-content h3 { font-size: 0.9rem; }
+    .education-box .education-content p { font-size: 0.75rem; }
+    .education-content .year { font-size: 0.75rem; }
+
+    /* ── PROJECTS ── */
+    .project-box { gap: 0.7rem; }
+    .project-box .project-content { padding: 0.9rem; margin-bottom: 0; }
+    .project-box .project-content h3 { font-size: 0.92rem; }
+    .project-box .project-content p {
+        font-size: 0.75rem !important;
+        text-align: left;
+        line-height: 1.5;
+    }
+
+    /* ── SERVICES ── */
+    .services-box { gap: 0.7rem; }
+    .services-box .services-content {
+        flex: 1 1 calc(50% - 0.7rem);
+        padding: 0.7rem 0.5rem 0.9rem;
+        font-size: 0.72rem;
+    }
+    .services-content h3 { font-size: 0.86rem !important; }
+    .services-content p { font-size: 0.72rem !important; }
+
+    /* ── SKILLS ── */
+    .skills-box { gap: 0.7rem; }
+    .skill-content h3 { font-size: 0.86rem !important; }
+    .skill-content .content span {
+        font-size: 0.65rem !important;
+        padding: 0.22rem 0.45rem !important;
+    }
+    .soft-skills { font-size: 0.75rem !important; }
+    .soft-skills li { margin-bottom: 0.3rem; }
+
+    /* ── CONTACT ── */
+    .contact-box .field {
+        padding: 0.65rem;
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+    }
+    .contact-box textarea { height: 7rem; }
+
+    /* ── Hide desktop-only flip controls entirely ── */
+    .nextprev-btn,
+    .number-page,
+    .back-profile {
+        display: none !important;
+    }
+
+    /* ── Optional: sticky mini-nav at top for quick jump ── */
+    .mobile-quick-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        overflow-x: auto;
+        gap: 0.4rem;
+        padding: 0.6rem 0.8rem;
+        background: rgba(5,46,22,0.96);
+        backdrop-filter: blur(6px);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .mobile-quick-nav::-webkit-scrollbar { display: none; }
+
+    .mobile-quick-nav a {
+        flex: 0 0 auto;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #fff;
+        background: rgba(34,197,94,0.18);
+        border: 1px solid rgba(34,197,94,0.4);
+        border-radius: 2rem;
+        white-space: nowrap;
+        text-decoration: none;
+    }
+
+    .mobile-quick-nav a:active {
+        background: var(--main-color);
+        color: #052e16;
+    }
+}
+
+/* ─── Extra-small phones ─── */
+@media (max-width: 420px) {
+    .profile-header img { width: 78px !important; height: 78px !important; }
+    .profile-page h1 { font-size: 1.4rem !important; }
+    .services-box .services-content { flex: 1 1 100%; }
+    .contact-box textarea { height: 6rem; }
+}
+
+/* ─── Desktop: hide mobile-only injected nav ─── */
+@media (min-width: 769px) {
+    .mobile-quick-nav,
+    .mobile-section-label {
+        display: none !important;
+    }
+}
