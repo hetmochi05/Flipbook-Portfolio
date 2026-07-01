@@ -1,0 +1,38 @@
+/* ============================================================
+   MOBILEANIMATION.CSS — Het Mochi Flipbook Portfolio
+   Scroll-reveal animation for mobile/tablet (≤768px) only.
+   Sections fade + slide in as the user scrolls down the page.
+   Works together with responsive.css + script.js (mobileanimation.js)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* ── Base state: hidden, shifted down ── */
+    .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease !important;
+    }
+
+    /* ── Revealed state (JS adds this class via IntersectionObserver) ── */
+    .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ── Variant: slide in from the LEFT ── */
+    .scroll-reveal.from-left {
+        transform: translateX(-40px);
+    }
+    .scroll-reveal.from-left.is-visible {
+        transform: translateX(0);
+    }
+
+    /* ── Variant: slide in from the RIGHT ── */
+    .scroll-reveal.from-right {
+        transform: translateX(40px);
+    }
+    .scroll-reveal.from-right.is-visible {
+        transform: translateX(0);
+    }
+}

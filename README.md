@@ -67,6 +67,7 @@ Flipbook-Portfolio/
 │   ├── js/
 │   │   ├── script.js             # Flipbook logic & navigation (desktop + mobile)
 │   │   ├── mobileanimation.js    # Scroll-reveal IntersectionObserver (mobile only)
+│   │   ├── responsive.js         # Mobile Responsive Logic (mobile only)
 │   │   └── EmailJS.js            # Contact form email handler
 │   │
 │   ├── images/
