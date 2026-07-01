@@ -1,6 +1,6 @@
 # 📖 Het Mochi | FlipBook Personal Portfolio
 
-A unique personal portfolio website built with a **3D flipbook experience** — designed to feel like flipping through a real book. Built entirely with vanilla HTML, CSS, and JavaScript.
+A unique personal portfolio website built with a **3D flipbook experience** — designed to feel like flipping through a real book. On mobile, it transforms into a clean scrollable portfolio with smooth scroll-reveal animations. Built entirely with vanilla HTML, CSS, and JavaScript.
 
 🔗 **Live Demo:** [hetmochi05.github.io/Flipbook-Portfolio](https://hetmochi05.github.io/Flipbook-Portfolio/)
 
@@ -14,6 +14,8 @@ A unique personal portfolio website built with a **3D flipbook experience** — 
 - 📧 **Contact Form** — powered by EmailJS with auto-reply to the sender
 - 🎨 **Smooth Animations** — hover effects, gradient text, pulse animations throughout
 - 🌙 **Custom Green Theme** — dark forest green palette with accent highlights
+- 📱 **Mobile Responsive** — flipbook transforms into a clean scrolling portfolio on mobile/tablet
+- ✨ **Scroll-Reveal Animations** — sections fade and slide in as you scroll on mobile
 
 ---
 
@@ -40,8 +42,8 @@ A unique personal portfolio website built with a **3D flipbook experience** — 
 ![Boxicons](https://img.shields.io/badge/Boxicons-2.1.4-22c55e?style=flat)
 
 - **HTML5** — semantic structure
-- **CSS3** — 3D transforms, animations, custom properties
-- **Vanilla JavaScript** — page flip logic, keyboard nav, touch events
+- **CSS3** — 3D transforms, animations, custom properties, scroll-reveal
+- **Vanilla JavaScript** — page flip logic, keyboard nav, IntersectionObserver scroll animations
 - **EmailJS** — contact form email delivery + auto-reply
 - **Boxicons** — icon library
 
@@ -56,14 +58,16 @@ Flipbook-Portfolio/
 │
 ├── assets/
 │   ├── css/
-│   │   ├── style.css       # Core layout & components
-│   │   ├── animation.css   # Hover & transition effects
-│   │   ├── colors.css      # CSS variables / theme
-│   │   └── responsive.css  # Media queries
+│   │   ├── style.css             # Core layout & components
+│   │   ├── animation.css         # Hover & transition effects
+│   │   ├── colors.css            # CSS variables / theme
+│   │   ├── responsive.css        # Mobile layout (flattens flipbook to scroll)
+│   │   └── mobileanimation.css   # Scroll-reveal animation styles (mobile only)
 │   │
 │   ├── js/
-│   │   ├── script.js       # Flipbook logic & navigation
-│   │   └── EmailJS.js      # Contact form email handler
+│   │   ├── script.js             # Flipbook logic & navigation (desktop + mobile)
+│   │   ├── mobileanimation.js    # Scroll-reveal IntersectionObserver (mobile only)
+│   │   └── EmailJS.js            # Contact form email handler
 │   │
 │   ├── images/
 │   │   └── Profile.png
@@ -106,6 +110,7 @@ Flipbook-Portfolio/
 
 ## 🎮 Navigation
 
+### Desktop
 | Action | Result |
 |--------|--------|
 | Click `›` button | Next page |
@@ -114,6 +119,26 @@ Flipbook-Portfolio/
 | `←` Arrow key | Previous page |
 | Click **Contact Me** | Jump to Contact page |
 | Click **Profile** icon | Return to Profile page |
+
+### Mobile / Tablet
+| Action | Result |
+|--------|--------|
+| Scroll down | Browse all sections |
+| Tap quick-nav pill | Jump to any section instantly |
+| Tap **Contact Me** | Smooth scroll to Contact section |
+
+---
+
+## 📱 Mobile Experience
+
+On screens ≤ 768px, the 3D flipbook is replaced with a clean, fast scrolling portfolio:
+
+- All 7 sections stack vertically — Profile → Education → Projects → Services → Skills → Contact
+- A **sticky quick-nav bar** at the top lets you jump to any section with one tap
+- Each section has a small label so you always know where you are
+- **Scroll-reveal animations** — sections fade and slide in (alternating left/right) as you scroll to them
+- All desktop flip animations and hover effects are disabled for a smooth mobile experience
+- The **Contact Me** button smooth-scrolls to the Contact section instead of flipping pages
 
 ---
 
