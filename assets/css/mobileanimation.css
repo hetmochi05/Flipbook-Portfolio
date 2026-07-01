@@ -1,38 +1,96 @@
 /* ============================================================
    MOBILEANIMATION.CSS — Het Mochi Flipbook Portfolio
-   Scroll-reveal animation for mobile/tablet (≤768px) only.
-   Sections fade + slide in as the user scrolls down the page.
-   Works together with responsive.css + script.js (mobileanimation.js)
+   Uses slide-animations.css keyframes for scroll-reveal.
+   Each section slides in from a different direction on scroll.
+   Only active on mobile/tablet (<=768px).
    ============================================================ */
+
+@keyframes slideLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to   { transform: translateX(0);      opacity: 1; }
+}
+
+@keyframes slideRight {
+    from { transform: translateX(100px);  opacity: 0; }
+    to   { transform: translateX(0);      opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px);  opacity: 0; }
+    to   { transform: translateY(0);      opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100px); opacity: 0; }
+    to   { transform: translateY(0);      opacity: 1; }
+}
+
+@keyframes slideBottomLeft {
+    from { transform: translate(-100px, 100px); opacity: 0; }
+    to   { transform: translate(0, 0);          opacity: 1; }
+}
+
+@keyframes slideBottomRight {
+    from { transform: translate(100px, 100px);  opacity: 0; }
+    to   { transform: translate(0, 0);          opacity: 1; }
+}
 
 @media (max-width: 768px) {
 
-    /* ── Base state: hidden, shifted down ── */
-    .scroll-reveal {
+    /* Hidden by default */
+    .mob-anim {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease !important;
+        pointer-events: none;
     }
 
-    /* ── Revealed state (JS adds this class via IntersectionObserver) ── */
-    .scroll-reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
+    .mob-anim.is-visible {
+        pointer-events: auto;
     }
 
-    /* ── Variant: slide in from the LEFT ── */
-    .scroll-reveal.from-left {
-        transform: translateX(-40px);
-    }
-    .scroll-reveal.from-left.is-visible {
-        transform: translateX(0);
+    /* Profile — slides DOWN */
+    .mob-anim.anim-profile.is-visible {
+        animation: slideDown 0.8s ease-out forwards !important;
     }
 
-    /* ── Variant: slide in from the RIGHT ── */
-    .scroll-reveal.from-right {
-        transform: translateX(40px);
+    /* Education — slides from LEFT */
+    .mob-anim.anim-education.is-visible {
+        animation: slideLeft 0.8s ease-out forwards !important;
     }
-    .scroll-reveal.from-right.is-visible {
-        transform: translateX(0);
+
+    /* Projects 1 — slides UP */
+    .mob-anim.anim-projects-1.is-visible {
+        animation: slideUp 0.8s ease-out forwards !important;
+    }
+
+    /* Projects 2 — slides from RIGHT */
+    .mob-anim.anim-projects-2.is-visible {
+        animation: slideRight 0.8s ease-out forwards !important;
+    }
+
+    /* Services — slides from bottom-left */
+    .mob-anim.anim-services.is-visible {
+        animation: slideBottomLeft 0.8s ease-out forwards !important;
+    }
+
+    /* Skills — slides from bottom-right */
+    .mob-anim.anim-skills.is-visible {
+        animation: slideBottomRight 0.8s ease-out forwards !important;
+    }
+
+    /* Contact — slides UP */
+    .mob-anim.anim-contact.is-visible {
+        animation: slideUp 0.8s ease-out forwards !important;
+    }
+
+    /* Optional delays */
+    .delay-1 { animation-delay: 0.2s !important; }
+    .delay-2 { animation-delay: 0.4s !important; }
+    .delay-3 { animation-delay: 0.6s !important; }
+}
+
+@media (min-width: 769px) {
+    .mob-anim {
+        opacity: 1 !important;
+        animation: none !important;
     }
 }
