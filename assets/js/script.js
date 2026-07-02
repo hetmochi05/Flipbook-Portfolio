@@ -1,45 +1,43 @@
 /* ============================================================
    SCRIPT.JS — Flipbook Portfolio by Het Mochi
    Desktop : original 3D flip logic
-   Mobile  : skips all flip logic, handled by mobilenav.js
-             and mobileanimation.js
+   Mobile  : assigns section IDs + handles Contact Me scroll
+             (navbar built by mobilenav.js)
+             (animations by mobileanimation.js)
    ============================================================ */
 
 function isMobile() {
     return window.innerWidth <= 768;
 }
 
-/* Page flip sound */
 const flipSound = new Audio("assets/sounds/page-flip-47177.mp3");
 flipSound.volume = 0.2;
 
-/* ================================================================
-   MOBILE — assign section IDs and handle Contact Me scroll
-================================================================ */
+/* ── MOBILE ── */
 function initMobile() {
 
-    /* Clear any inline styles */
+    /* Clear any leftover inline styles from desktop */
     document.querySelectorAll(".book-page, .page-front, .page-back").forEach(el => {
         el.style.zIndex = "";
         el.style.transform = "";
     });
 
-    /* Assign IDs to each section (mobilenav.js needs these) */
-    const sectionMap = [
-        { el: document.querySelector(".book-page.page-left"), id: "sec-profile",    label: "Profile" },
-        { el: document.querySelector("#turn-1 .page-front"),  id: "sec-education",  label: "Education" },
-        { el: document.querySelector("#turn-1 .page-back"),   id: "sec-projects-1", label: "Projects" },
-        { el: document.querySelector("#turn-2 .page-front"),  id: "sec-projects-2", label: "More Projects" },
-        { el: document.querySelector("#turn-2 .page-back"),   id: "sec-services",   label: "Services" },
-        { el: document.querySelector("#turn-3 .page-front"),  id: "sec-skills",     label: "Skills" },
-        { el: document.querySelector("#turn-3 .page-back"),   id: "sec-contact",    label: "Contact" },
+    /* Assign section IDs (mobilenav.js + mobileanimation.js depend on these) */
+    const sections = [
+        { el: document.querySelector(".book-page.page-left"), id: "sec-profile"    },
+        { el: document.querySelector("#turn-1 .page-front"),  id: "sec-education"  },
+        { el: document.querySelector("#turn-1 .page-back"),   id: "sec-projects-1" },
+        { el: document.querySelector("#turn-2 .page-front"),  id: "sec-projects-2" },
+        { el: document.querySelector("#turn-2 .page-back"),   id: "sec-services"   },
+        { el: document.querySelector("#turn-3 .page-front"),  id: "sec-skills"     },
+        { el: document.querySelector("#turn-3 .page-back"),   id: "sec-contact"    },
     ];
 
-    sectionMap.forEach(s => {
+    sections.forEach(s => {
         if (s.el) s.el.id = s.id;
     });
 
-    /* Contact Me → smooth scroll to contact section */
+    /* Contact Me → smooth scroll to contact */
     const contactBtn = document.querySelector(".btn.contact-me");
     if (contactBtn) {
         contactBtn.onclick = (e) => {
@@ -50,18 +48,15 @@ function initMobile() {
     }
 }
 
-/* ================================================================
-   DESKTOP — original 3D flip logic (unchanged)
-================================================================ */
+/* ── DESKTOP ── */
 function initDesktop() {
 
-    const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
+    const pageTurnBtns = document.querySelectorAll(".nextprev-btn");
 
-    pageTurnBtn.forEach((el, index) => {
+    pageTurnBtns.forEach((el, index) => {
         el.onclick = () => {
             const pageTurnId = el.getAttribute("data-page");
             const pageTurn = document.getElementById(pageTurnId);
-
             flipSound.currentTime = 0;
             flipSound.play();
 
@@ -78,6 +73,11 @@ function initDesktop() {
     const pages = document.querySelectorAll(".book-page.page-right");
     let totalPages = pages.length;
     let pageNumber = 0;
+
+    function reverseIndex() {
+        pageNumber--;
+        if (pageNumber < 0) pageNumber = totalPages - 1;
+    }
 
     const contactMeBtn = document.querySelector(".btn.contact-me");
     if (contactMeBtn) {
@@ -107,11 +107,6 @@ function initDesktop() {
         };
     }
 
-    function reverseIndex() {
-        pageNumber--;
-        if (pageNumber < 0) pageNumber = totalPages - 1;
-    }
-
     const coverRight = document.querySelector(".cover.cover-right");
     const pageLeft   = document.querySelector(".book-page.page-left");
 
@@ -130,11 +125,9 @@ function initDesktop() {
         }, (index + 1) * 200 + 2100);
     });
 
-    /* Keyboard navigation */
     document.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
         event.preventDefault();
-
         const allPages = document.querySelectorAll(".book-page.page-right");
 
         if (event.key === "ArrowRight") {
@@ -154,23 +147,14 @@ function initDesktop() {
     });
 }
 
-/* ================================================================
-   BOOT
-================================================================ */
+/* ── BOOT ── */
 document.addEventListener("DOMContentLoaded", () => {
-    if (isMobile()) {
-        initMobile();
-    } else {
-        initDesktop();
-    }
+    if (isMobile()) initMobile();
+    else initDesktop();
 });
 
-/* Reload on breakpoint cross */
 let lastMode = isMobile() ? "mobile" : "desktop";
 window.addEventListener("resize", () => {
     const now = isMobile() ? "mobile" : "desktop";
-    if (now !== lastMode) {
-        lastMode = now;
-        location.reload();
-    }
+    if (now !== lastMode) { lastMode = now; location.reload(); }
 });

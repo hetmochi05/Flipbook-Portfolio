@@ -11,7 +11,7 @@
 
     html,
     body {
-        overflow-x: hidden;
+        overflow-x: hidden !important;
     }
 
     body {
@@ -46,11 +46,6 @@
         perspective: none;
     }
 
-    /* ── Every page becomes a normal full-width block, stacked vertically ──
-       NOTE: .turn class in the original CSS triggers rotateY(-180deg) on
-       .book-page.page-right — that rule has equal/higher specificity than
-       a plain class selector, so we must explicitly neutralize the
-       ".book-page.page-right.turn" combo too, not just ".book-page". */
     .book .book-page,
     .book .book-page.page-right,
     .book .book-page.page-right.turn {
@@ -74,10 +69,6 @@
         border-bottom: 1px solid rgba(34, 197, 94, 0.25);
     }
 
-    /* ── page-front / page-back: also flattened, stacked one after another ──
-       Original CSS gives these `position:absolute; top:0; left:0` so both
-       sit exactly on top of each other. We force them into normal document
-       flow (relative + block) so they stack vertically instead. */
     .book-page .page-front,
     .book-page .page-back {
         display: block !important;
@@ -99,19 +90,15 @@
         clear: both;
     }
 
-    /* last page-back has no border (it's the last section) */
     #turn-3 .page-back {
         border-bottom: none;
     }
 
-    /* Failsafe: ensure page-back never renders flipped/hidden regardless
-       of any inline styles JS might add on desktop init */
     .book-page .page-back {
         transform: rotateY(0deg) !important;
     }
 
-    /* ── Section labels — a small heading above each block so users
-       always know which "page" they're scrolled to ── */
+    /* ── Section labels ── */
     .mobile-section-label {
         display: block;
         font-size: 0.7rem;
@@ -209,32 +196,14 @@
         border-left: 3px solid var(--main-color);
     }
 
-    .education-content h3 {
-        font-size: 0.9rem;
-    }
-
-    .education-box .education-content p {
-        font-size: 0.75rem;
-    }
-
-    .education-content .year {
-        font-size: 0.75rem;
-    }
+    .education-content h3 { font-size: 0.9rem; }
+    .education-box .education-content p { font-size: 0.75rem; }
+    .education-content .year { font-size: 0.75rem; }
 
     /* ── PROJECTS ── */
-    .project-box {
-        gap: 0.7rem;
-    }
-
-    .project-box .project-content {
-        padding: 0.9rem;
-        margin-bottom: 0;
-    }
-
-    .project-box .project-content h3 {
-        font-size: 0.92rem;
-    }
-
+    .project-box { gap: 0.7rem; }
+    .project-box .project-content { padding: 0.9rem; margin-bottom: 0; }
+    .project-box .project-content h3 { font-size: 0.92rem; }
     .project-box .project-content p {
         font-size: 0.75rem !important;
         text-align: left;
@@ -242,45 +211,24 @@
     }
 
     /* ── SERVICES ── */
-    .services-box {
-        gap: 0.7rem;
-    }
-
+    .services-box { gap: 0.7rem; }
     .services-box .services-content {
         flex: 1 1 calc(50% - 0.7rem);
         padding: 0.7rem 0.5rem 0.9rem;
         font-size: 0.72rem;
     }
-
-    .services-content h3 {
-        font-size: 0.86rem !important;
-    }
-
-    .services-content p {
-        font-size: 0.72rem !important;
-    }
+    .services-content h3 { font-size: 0.86rem !important; }
+    .services-content p { font-size: 0.72rem !important; }
 
     /* ── SKILLS ── */
-    .skills-box {
-        gap: 0.7rem;
-    }
-
-    .skill-content h3 {
-        font-size: 0.86rem !important;
-    }
-
+    .skills-box { gap: 0.7rem; }
+    .skill-content h3 { font-size: 0.86rem !important; }
     .skill-content .content span {
         font-size: 0.65rem !important;
         padding: 0.22rem 0.45rem !important;
     }
-
-    .soft-skills {
-        font-size: 0.75rem !important;
-    }
-
-    .soft-skills li {
-        margin-bottom: 0.3rem;
-    }
+    .soft-skills { font-size: 0.75rem !important; }
+    .soft-skills li { margin-bottom: 0.3rem; }
 
     /* ── CONTACT ── */
     .contact-box .field {
@@ -288,76 +236,25 @@
         font-size: 0.85rem;
         margin-bottom: 0.75rem;
     }
+    .contact-box textarea { height: 7rem; }
 
-    .contact-box textarea {
-        height: 7rem;
-    }
-
-    /* ── Hide desktop-only flip controls entirely ── */
+    /* ── Hide desktop-only flip controls ── */
     .nextprev-btn,
     .number-page,
     .back-profile {
         display: none !important;
     }
 
-    /* ── Optional: sticky mini-nav at top for quick jump ── */
-    .mobile-quick-nav {
-        position: sticky;
-        top: 0;
-        z-index: 999 !important;
-        display: flex;
-        overflow-x: auto;
-        gap: 0.4rem;
-        padding: 0.6rem 0.8rem;
-        background: rgba(5, 46, 22, 0.96);
-        backdrop-filter: blur(6px);
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-
-    .mobile-quick-nav::-webkit-scrollbar {
-        display: none;
-    }
-
-    .mobile-quick-nav a {
-        flex: 0 0 auto;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.7rem;
-        font-weight: 600;
-        color: #fff;
-        background: rgba(34, 197, 94, 0.18);
-        border: 1px solid rgba(34, 197, 94, 0.4);
-        border-radius: 2rem;
-        white-space: nowrap;
-        text-decoration: none;
-    }
-
-    .mobile-quick-nav a:active {
-        background: var(--main-color);
-        color: #052e16;
-    }
-
-    /* ══════════════════════════════════════════
-   KILL ALL ANIMATIONS & TRANSITIONS ON MOBILE
-   (covers animation.css keyframes, hover effects,
-   gradient text loop, pulse glows, card lifts, etc.)
-   ══════════════════════════════════════════ */
-    *,
-    *::before,
-    *::after {
+    /* ── Kill all desktop animations ── */
+    *, *::before, *::after {
         animation: none !important;
         transition: none !important;
         scroll-behavior: auto !important;
     }
 
-    /* Specifically neutralize transform-based hover effects that
-   would otherwise still fire on tap (touch triggers :active) */
-    .services-content:hover,
-    .services-content:active,
-    .education-box .education-content:hover,
-    .education-box .education-content:active,
-    .project-box .project-content:hover,
-    .project-box .project-content:active,
+    .services-content:hover, .services-content:active,
+    .education-box .education-content:hover, .education-box .education-content:active,
+    .project-box .project-content:hover, .project-box .project-content:active,
     .profile-page img:hover,
     .profile-page .social-media a:hover,
     .skill-content .content span:hover,
@@ -369,7 +266,6 @@
         box-shadow: none !important;
     }
 
-    /* gradientText keyframe on h1 — freeze to a static color */
     .profile-page h1 {
         animation: none !important;
         background: none !important;
@@ -380,27 +276,14 @@
 
 /* ─── Extra-small phones ─── */
 @media (max-width: 420px) {
-    .profile-header img {
-        width: 78px !important;
-        height: 78px !important;
-    }
-
-    .profile-page h1 {
-        font-size: 1.4rem !important;
-    }
-
-    .services-box .services-content {
-        flex: 1 1 100%;
-    }
-
-    .contact-box textarea {
-        height: 6rem;
-    }
+    .profile-header img { width: 78px !important; height: 78px !important; }
+    .profile-page h1 { font-size: 1.4rem !important; }
+    .services-box .services-content { flex: 1 1 100%; }
+    .contact-box textarea { height: 6rem; }
 }
 
-/* ─── Desktop: hide mobile-only injected nav ─── */
+/* ─── Desktop: hide mobile-only elements ─── */
 @media (min-width: 769px) {
-
     .mobile-quick-nav,
     .mobile-section-label {
         display: none !important;
