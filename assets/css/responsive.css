@@ -9,6 +9,27 @@
 
 @media (max-width: 768px) {
 
+/* ── Fix sticky navbar ── */
+html {
+    overflow-y: scroll !important;
+    scroll-behavior: auto !important;
+}
+
+body {
+    overflow-y: visible !important;
+}
+
+.wrapper,
+.book {
+    overflow: visible !important;
+    height: auto !important;
+}
+
+/* ── Push content below fixed navbar ── */
+.book-page.page-left {
+    padding-top: 4rem !important;
+}
+
     html,
     body {
         overflow-x: hidden !important;
