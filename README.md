@@ -167,13 +167,13 @@ On screens ≤ 768px, the 3D flipbook is replaced with a clean, fast scrolling p
 ### 📱 Mobile View
 
 <p align="center">
-   <img src="screenshorts/Profile.jpg" width="15%" alt="Profile View">
-   <img src="screenshorts/education.jpg" width="15%" alt="Education View">
-   <img src="screenshorts/Projects.jpg" width="15%" alt="Project View">
-   <img src="screenshorts/services.jpg" width="15%" alt="Services View">
-   <img src="screenshorts/skills.jpg" width="15%" alt="Skills View">
-   <img src="screenshorts/contectme.jpg" width="15%" alt="Contect Me View">
-   <img src="screenshorts/navbar.jpg" width="15%" alt="Navbar View">
+   <img src="screenshorts/Profile.jpg" width="10%" alt="Profile View">
+   <img src="screenshorts/education.jpg" width="10%" alt="Education View">
+   <img src="screenshorts/Projects.jpg" width="10%" alt="Project View">
+   <img src="screenshorts/services.jpg" width="10%" alt="Services View">
+   <img src="screenshorts/skills.jpg" width="10%" alt="Skills View">
+   <img src="screenshorts/contectme.jpg" width="10%" alt="Contect Me View">
+   <img src="screenshorts/navbar.jpg" width="10%" alt="Navbar View">
 </p>
 
 ---
