@@ -55,31 +55,41 @@ A unique personal portfolio website built with a **3D flipbook experience** — 
 Flipbook-Portfolio/
 │
 ├── index.html
+├── README.md
+├── LICENSE
+├── .gitignore
 │
 ├── assets/
+│   │
 │   ├── css/
-│   │   ├── style.css             # Core layout & components
-│   │   ├── animation.css         # Hover & transition effects
-│   │   ├── colors.css            # CSS variables / theme
-│   │   ├── responsive.css        # Mobile layout (flattens flipbook to scroll)
-│   │   └── mobileanimation.css   # Scroll-reveal animation styles (mobile only)
+│   │   ├── style.css
+│   │   ├── colors.css
+│   │   ├── animation.css
+│   │   ├── responsive.css
+│   │   └── mobileanimation.css
 │   │
 │   ├── js/
-│   │   ├── script.js             # Flipbook logic & navigation (desktop + mobile)
-│   │   ├── mobileanimation.js    # Scroll-reveal IntersectionObserver (mobile only)
-│   │   ├── responsive.js         # Mobile Responsive Logic (mobile only)
-│   │   └── EmailJS.js            # Contact form email handler
+│   │   ├── script.js
+│   │   ├── responsive.js
+│   │   ├── mobileanimation.js
+│   │   └── EmailJS.js
 │   │
 │   ├── images/
-│   │   └── Profile.png
+│   │   ├── Profile.png
+│   │   └── favicon.png
 │   │
 │   ├── sounds/
 │   │   └── page-flip-47177.mp3
 │   │
 │   └── resume/
 │       └── Resume.pdf
+│
+└── screenshots/
+    ├── desktop.png
+    ├── mobile.png
+    ├── profile.png
+    └── contact.png
 ```
-
 ---
 
 ## 🚀 Getting Started
@@ -143,9 +153,28 @@ On screens ≤ 768px, the 3D flipbook is replaced with a clean, fast scrolling p
 
 ---
 
-## 📸 Preview
+## 📸 Screenshots Of The Project
 
-> *(Add a screenshot or screen recording GIF of your flipbook here)*
+### 🖥️ Desktop View
+
+<p align="center">
+   <img src="screenshorts/profile.png" width="48%" alt="Profile & Education View">
+   <img src="screenshorts/project.png" width="48%" alt="Project View">
+   <img src="screenshorts/services&sckills.png" width="48%" alt="Sevices & Skills View">
+   <img src="screenshorts/contect.png" width="48%" alt="Contect View">
+</p>
+
+### 📱 Mobile View
+
+<p align="center">
+   <img src="screenshorts/Profile.jpg" width="48%" alt="Profile View">
+   <img src="screenshorts/education.jpg" width="48%" alt="Education View">
+   <img src="screenshorts/Projects.jpg" width="48%" alt="Project View">
+   <img src="screenshorts/services.jpg" width="48%" alt="Services View">
+   <img src="screenshorts/skills.jpg" width="48%" alt="Skills View">
+   <img src="screenshorts/contectme.jpg" width="48%" alt="Contect Me View">
+   <img src="screenshorts/navbar.jpg" width="48%" alt="Navbar View">
+</p>
 
 ---
 
