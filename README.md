@@ -158,22 +158,22 @@ On screens ≤ 768px, the 3D flipbook is replaced with a clean, fast scrolling p
 ### 🖥️ Desktop View
 
 <p align="center">
-   <img src="screenshorts/profile.png" width="48%" alt="Profile & Education View">
-   <img src="screenshorts/project.png" width="48%" alt="Project View">
-   <img src="screenshorts/services&sckills.png" width="48%" alt="Sevices & Skills View">
-   <img src="screenshorts/contect.png" width="48%" alt="Contect View">
+   <img src="screenshorts/desktop-profile.png" width="25%" alt="Profile & Education View">
+   <img src="screenshorts/desktop-project.png" width="25%" alt="Project View">
+   <img src="screenshorts/desktop-services&sckills.png" width="25%" alt="Sevices & Skills View">
+   <img src="screenshorts/desktop-contect.png" width="25%" alt="Contect View">
 </p>
 
 ### 📱 Mobile View
 
 <p align="center">
-   <img src="screenshorts/Profile.jpg" width="48%" alt="Profile View">
-   <img src="screenshorts/education.jpg" width="48%" alt="Education View">
-   <img src="screenshorts/Projects.jpg" width="48%" alt="Project View">
-   <img src="screenshorts/services.jpg" width="48%" alt="Services View">
-   <img src="screenshorts/skills.jpg" width="48%" alt="Skills View">
-   <img src="screenshorts/contectme.jpg" width="48%" alt="Contect Me View">
-   <img src="screenshorts/navbar.jpg" width="48%" alt="Navbar View">
+   <img src="screenshorts/Profile.jpg" width="20%" alt="Profile View">
+   <img src="screenshorts/education.jpg" width="20%" alt="Education View">
+   <img src="screenshorts/Projects.jpg" width="20%" alt="Project View">
+   <img src="screenshorts/services.jpg" width="20%" alt="Services View">
+   <img src="screenshorts/skills.jpg" width="20%" alt="Skills View">
+   <img src="screenshorts/contectme.jpg" width="20%" alt="Contect Me View">
+   <img src="screenshorts/navbar.jpg" width="20%" alt="Navbar View">
 </p>
 
 ---
